@@ -3,9 +3,7 @@ for i in $(cat $1)
 do
         mkdir ~/recon/$i
         cd ~/recon/$i
-        source ~/.bashrc
-        certspotter $i | tee -a recon.certspotter.txt
-        certsh $i | tee -a recon.crtsh.txt
+        crtsh $i | tee -a recon.crtsh.txt
         subfinder -d $i -o ~/recon/$i/recon.subfinder.txt
         findomain -t $i -u ~/recon/$i/recon.findomain.txt
         cat recon* | sort -u > all.recon.txt
